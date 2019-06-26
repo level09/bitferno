@@ -3,21 +3,78 @@
 {% block content %}
 
 
-    <div class="main" style="text-align: center; padding:40px;">
+    <div id="app" class="main-content">
+        <h2>BitFerno Bitcoin Wallet</h2>
 
-        <a href="/"><img src="/static/img/enferno.svg" alt="enferno"></a>
+        <a class="btn" @click="generate" href="#">Generate New Bitcoin Address</a>
 
-        <h3>Welcome!</h3>
+        <div class="results">
 
-        <p>Congratulations! Enferno framework has been installed successfully. </p>
+            <div v-if="address">
+                <label>Address</label>
+                <div class="output address">
+                    ${ address }
+
+                </div>
+            </div>
+
+            <div v-if="segwit_address">
+                <label>Segwit Address</label>
+
+                <div v-if="segwit_address" class="output segwit-address">
+                    ${segwit_address}
+
+                </div>
+            </div>
 
 
-        <p>
-            <a href="/register">Sign up</a> or <a href="/login">Sign in</a>
-        </p>
-
-
+            <div class="export" v-if="download">
+                <a class="btn download" v-bind:href="download">Download Private Key (Hex)</a>
+            </div>
+        </div>
     </div>
 
+{% endblock %}
+
+
+{% block js %}
+
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            delimiters: ['${', '}'],
+            data: {
+                address: '',
+                segwit_address: '',
+                download: '',
+
+                notify: ''
+
+            },
+            mounted: function (e) {
+            }
+            ,
+            methods: {
+
+                generate: function (e) {
+                    this.$http.post('/api/generate/').then(function (result) {
+                            this.address = result.body.address;
+                            this.segwit_address = result.body.segwit_address;
+                            this.download = '/download/?' + this.address;
+
+
+                        },
+                        function (err) {
+                            alert('error generating address')
+                        }
+                    )
+                }
+
+
+            }
+
+        });
+    </script>
 
 {% endblock %}

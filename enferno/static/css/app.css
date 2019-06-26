@@ -1,0 +1,67 @@
+body {
+background: url(../img/body-pattern.png);
+}
+.main-content {
+    background: #fff;
+    margin: 50px auto;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+.main-content h2 {
+    margin-bottom: 40px;
+}
+
+.output {
+    padding:18px;
+    width: 100%;
+    text-align: center;
+    background: rgba(249, 255, 215, 0.22);
+    border: 1px solid #ddd;
+    font-size: 32px;
+    margin: 10px 0;
+    
+    
+}
+
+.results {
+    margin-top: 30px;
+}
+
+a.btn {
+    white-space: nowrap;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: #ff9900;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: #fff;
+
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+a.btn:hover {
+        transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+a.btn:active {
+
+    background-color: #e68500;
+}
+
+.btn.download {
+    background: #384f76;
+}
+
+.export {
+    margin-top: 40px;
+}
