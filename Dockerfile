@@ -15,6 +15,7 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 ENV FLASK_APP=run.py
+ENV FLASK_DEBUG=0
 ENV C_FORCE_ROOT="true"
 ENV SQLALCHEMY_DATABASE_URI="postgresql://enferno:verystrongpass@postgres/enferno"
 ENV CELERY_BROKER_URL="redis://redis:verystrongpass@redis:6379/10"
